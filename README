@@ -29,3 +29,6 @@ dr-fine-rag/
 ├── .gitignore               # Fichiers à ignorer par Git
 ├── pyproject.toml           # Gestion des dépendances (ou requirements.txt)
 └── README.md                # Documentation pour le CV
+
+
+Choices : cosine similarity for the RAG as we focus on text similarity

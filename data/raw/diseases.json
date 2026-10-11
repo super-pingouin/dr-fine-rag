@@ -1,0 +1,26 @@
+[
+  {
+    "id": "lupus_01",
+    "name": "Lupus érythémateux systémique",
+    "visible_symptoms": ["Éruption cutanée en ailes de papillon sur le nez et les joues", "Fatigue chronique intense"],
+    "hidden_symptoms": ["Douleurs articulaires migratoires", "Sensibilité extrême au soleil (photosensibilité)"],
+    "lab_results": "Anticorps anti-ANA positifs, VS (Vitesse de Sédimentation) élevée",
+    "treatment": "Corticostéroïdes et hydroxychloroquine"
+  },
+  {
+    "id": "lyme_02",
+    "name": "Maladie de Lyme (phase disséminée)",
+    "visible_symptoms": ["Érythème migrant (plaque rouge qui s'étend en cible)", "légère paralysie faciale"],
+    "hidden_symptoms": ["Céphalées violentes", "Douleurs articulaires", "Fatigue et engourdissements"],
+    "lab_results": "Sérologie de Lyme positive (Western Blot)",
+    "treatment": "Antibiotiques (Doxycycline)"
+  },
+  {
+    "id": "porphyrie_03",
+    "name": "Porphyrie aiguë intermittente",
+    "visible_symptoms": ["Urines de couleur rouge sombre / porto", "État confusionnel"],
+    "hidden_symptoms": ["Douleurs abdominales aiguës inexpliquées", "Faiblesse musculaire dans les bras"],
+    "lab_results": "Présence de porphobilinogène dans les urines",
+    "treatment": "Perfusion d'hémine, arrêt des déclencheurs"
+  }
+]
