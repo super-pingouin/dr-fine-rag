@@ -1,0 +1,20 @@
+# --- Core & Utilitaires ---
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+loguru>=0.7.0  # Pour des logs propres et colorés
+
+# --- RAG & Embeddings ---
+langchain>=0.2.0
+langchain-community>=0.2.0
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+
+# --- LLM & Fine-Tuning (Local / Hugging Face) ---
+torch>=2.1.0
+transformers>=4.38.0
+datasets>=2.18.0
+accelerate>=0.27.0
+# trl>=0.8.0  # Décommentez si vous faites le fine-tuning avec TRL/Unsloth
+
+# --- Interface Utilisateur ---
+streamlit>=1.30.0
