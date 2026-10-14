@@ -23,22 +23,31 @@ Règles :
 """
 
 
-def generate_synthetic_dialogue(disease_info: dict, system_prompt: str = DEFAULT_SYSTEM_PROMPT) -> list[dict]:
-    """Generate an interactive dialogue scenario for a specific disease using a given system prompt."""
+def generate_synthetic_dialogue(disease_info, system_prompt = DEFAULT_SYSTEM_PROMPT ) :
+    """Generate an interactive dialogue scenario for a specific disease using the system prompt."""
     
     # We dynamically injecte disease data into the System Prompt
+
     formatted_system_prompt = system_prompt.format(
         disease_name=disease_info.get("name", "Inconnue"),
         visible_symptoms=", ".join(disease_info.get("visible_symptoms", [])),
         hidden_symptoms=", ".join(disease_info.get("hidden_symptoms", []))
     )
+    
+    # We structure the messages using a strict "user" / "assistant" format to ensure a simple chat_template structure.
+    # The context is injected along with the doctor's question into the "user" role.
 
-    # We structure the messages in the standard format 
+    context_and_doctor_content = (
+        f"[CONTEXTE SYSTÈME]\n{formatted_system_prompt}\n\n"
+        f"[MÉDECIN] Bonjour, qu'est-ce qui vous amène aujourd'hui ?"
+    )
+
+    patient_content = f"Bonjour docteur... Je ne me sens pas bien, j'ai notamment {', '.join(disease_info.get('visible_symptoms', ['des douleurs']))}."
     dialogue_turns = [
-        {"role": "system", "content": formatted_system_prompt},
-        {"role": "doctor", "content": "Bonjour, qu'est-ce qui vous amène aujourd'hui ?"},
-        {"role": "patient", "content": f"Bonjour docteur... Je ne me sens pas bien, j'ai notamment {', '.join(disease_info.get('visible_symptoms', ['des douleurs']))}."}
+        {"role": "user", "content": context_and_doctor_content},
+        {"role": "assistant", "content": patient_content}
     ]
+
     return dialogue_turns
 
 
