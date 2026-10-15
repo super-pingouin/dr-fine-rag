@@ -6,3 +6,13 @@ data/processed/
 datasets/training/
 *.safetensors
 .DS_Store
+
+# --- Unsloth & Cache Local ---
+unsloth_compiled_cache/
+*.pyc
+__pycache__/*
+
+# --- Sorties d'entraînement & Checkpoints ---
+outputs/
+results/
+runs/
