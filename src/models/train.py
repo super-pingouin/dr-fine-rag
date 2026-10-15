@@ -41,11 +41,11 @@ from src.config import (
 )
 
 
-def load_model_and_tokenizer():
+def load_model_and_tokenizer(model_dir=MODEL_NAME):
     """Load the base model and the tokenizer via Unsloth."""
     print("--- Load the base model via Unsloth ---")
     model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name=MODEL_NAME,
+        model_name=model_dir,
         max_seq_length=MAX_SEQ_LENGTH,
         dtype=DTYPE,
         load_in_4bit=LOAD_IN_4BIT,
