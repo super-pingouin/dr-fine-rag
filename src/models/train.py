@@ -70,6 +70,7 @@ def setup_peft_model(model):
 
 
 def _formatting_prompts_func(examples, tokenizer):
+    """Format an element from the dataset into a prompt"""
     convos = examples["messages"]
     texts = [
         tokenizer.apply_chat_template(convo, tokenize=False, add_generation_prompt=False) 
@@ -87,7 +88,7 @@ def prepare_dataset(tokenizer):
     dataset = load_dataset("json", data_files=DATASET_PATH, split="train")
     dataset = dataset.map(lambda ex: _formatting_prompts_func(ex, tokenizer), batched=True)
     print(f"Dataset successfully loaded! Number of examples : {len(dataset)}")
-    return dataset
+    return dataset, tokenizer
 
 def train_model(model, tokenizer, dataset):
     """Configures and launches the SFTTrainer."""
@@ -127,12 +128,13 @@ def save_model(model, tokenizer):
 
 
 def main():
-    """Fonction principale orchestrant le pipeline d'entraînement."""
+    """Main function orchestrating the training pipeline."""
     model, tokenizer = load_model_and_tokenizer()
     model = setup_peft_model(model)
-    dataset=prepare_dataset(tokenizer)
+    dataset, tokenizer = prepare_dataset(tokenizer)
     train_model(model, tokenizer, dataset)
     save_model(model, tokenizer)
+
 
 if __name__ == "__main__":
     main()
