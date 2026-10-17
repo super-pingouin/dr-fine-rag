@@ -29,11 +29,8 @@ def load_random_disease():
     return disease_info
 
 
-def ask_patient(user_message, messages_history, model, tokenizer):
-    """Sends the doctor's message to the patient and returns the model's response and the updated message history."""
-    
-    # Append the doctor's question to the history
-    messages_history.append({"role": "user", "content": user_message})
+def generate_response(model, tokenizer, messages_history, max_new_tokens=256, temperature=0.7, do_sample=True):
+    """ Generates an LLM response based on a message history. """
     
     # Apply chat template
     inputs = tokenizer.apply_chat_template(
@@ -46,15 +43,26 @@ def ask_patient(user_message, messages_history, model, tokenizer):
     # Generate response
     outputs = model.generate(
         input_ids=inputs,
-        max_new_tokens=256,
-        temperature=0.7,
-        do_sample=True,
+        max_new_tokens=max_new_tokens,
+        temperature=temperature,
+        do_sample=do_sample,
         pad_token_id=tokenizer.eos_token_id
     )
     
     # Decode the model's response
-    response = outputs[0][inputs.shape[1]:]
-    decoded_response = tokenizer.decode(response, skip_special_tokens=True)
+    response_tokens = outputs[0][inputs.shape[1]:]
+    decoded_response = tokenizer.decode(response_tokens, skip_special_tokens=True).strip()
+    
+    return decoded_response
+
+
+def ask_patient(user_message, messages_history, model, tokenizer):
+    """Sends the doctor's message to the patient and returns the model's response and the updated message history."""
+    
+    # Append the doctor's question to the history
+    messages_history.append({"role": "user", "content": user_message})
+    
+    decoded_response = generate_response(model, tokenizer, messages_history)
     
     # Add the response to the message history
     messages_history.append({"role": "assistant", "content": decoded_response})
