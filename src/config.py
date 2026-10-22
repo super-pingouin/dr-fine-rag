@@ -42,3 +42,10 @@ LOGGING_STEPS = 1
 OPTIMIZER = "paged_adamw_8bit"
 REPORT_TO = "none"
 
+# --- Game engine ---
+EASY_MODE = True
+MAX_TURNS = 10
+MAX_TURNS_DIFFICULT = 5
+NB_QCM = 3
+NB_GUESS = 3
+
