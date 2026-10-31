@@ -17,5 +17,9 @@ datasets>=2.18.0
 accelerate>=0.27.0
 trl>=0.8.0
 
+# --- Web & API ---
+fastapi>=0.110.0
+uvicorn>=0.28.0
+
 # --- Interface Utilisateur ---
 streamlit>=1.30.0
