@@ -73,7 +73,7 @@ git clone https://github.com/your-username/dr-fine-rag.git
 cd dr-fine-rag
 
 
-2. Configure Environment
+## 2. Configure Environment
 
 Copy the example environment configuration:
 
