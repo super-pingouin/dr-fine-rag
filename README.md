@@ -77,7 +77,7 @@ cd dr-fine-rag
 
 Copy the example environment configuration:
 
-cp .env.example .env
+pip install -r requirements.txt
 
 
 ### 3. Run the Application
