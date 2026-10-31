@@ -77,8 +77,9 @@ cd dr-fine-rag
 
 Copy the example environment configuration:
 
+```text
 pip install -r requirements.txt
-
+```
 
 ### 3. Run the Application
 
@@ -88,9 +89,9 @@ On Windows: Double-click or run run.bat in your terminal.
 
 Manual Launch:
 
-Backend: uvicorn main:app --port 8000
+Backend: ```text uvicorn main:app --port 8000  ```
 
-Frontend: streamlit run app.py
+Frontend: ```text streamlit run app.py ```
 
 ## 🌐 Endpoints & Access
 
