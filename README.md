@@ -89,9 +89,13 @@ On Windows: Double-click or run run.bat in your terminal.
 
 Manual Launch:
 
-Backend: ```text uvicorn main:app --port 8000  ```
+Backend: ```text 
+uvicorn main:app --port 8000  
+```
 
-Frontend: ```text streamlit run app.py ```
+Frontend: ```text
+streamlit run app.py
+```
 
 ## 🌐 Endpoints & Access
 
