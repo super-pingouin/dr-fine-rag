@@ -1,12 +1,12 @@
-🩺 Dr. Fine RAG: The Mysterious Drug
+# 🩺 Dr. Fine RAG: The Mysterious Drug
 
-An immersive, full-stack GenAI medical investigation game powered by a local LLM, RAG architecture, and a structured modular backend.
+An immersive, full-stack GenAI medical investigation game in French powered by a local LLM, RAG architecture, and a structured modular backend.
 
-🚧 Project Status & Roadmap (MVP)
+## 🚧 Project Status & Roadmap (MVP)
 
 Note: This project is currently in an active MVP (Minimum Viable Product) stage. The full software architecture, end-to-end pipelines, and decoupled web interface are fully implemented and functional. However, the project is still evolving: the final LLM fine-tuning session is pending, and the RAG pipeline is currently being integrated and refined.
 
-🎮 About the Project
+## 🎮 About the Project
 
 Dr. Fine RAG turns medical diagnostics into an interactive puzzle game.
 
@@ -16,8 +16,9 @@ The Goal: The user (playing as the doctor) must interview the patient, leverage 
 
 The Technical Approach: Built with a clean separation of concerns, utilizing cosine similarity for precise text-based RAG matching and a modular pipeline spanning from raw data to web UI inference.
 
-📁 Exact Project Structure
+## 📁 Exact Project Structure
 
+```text
 dr-fine-rag/
 │
 ├── data/
@@ -52,7 +53,7 @@ dr-fine-rag/
 └── run.bat                       # Automated Windows launcher script
 
 
-🛠️ Tech Stack & Key Choices
+## 🛠️ Tech Stack & Key Choices
 
 Language: Python 3.10+
 
@@ -64,9 +65,9 @@ LLM Engine: Unsloth (optimized local training & inference framework)
 
 RAG Engine: Vector/text retrieval relying on Cosine Similarity for efficient medical record matching.
 
-🚀 Getting Started
+## 🚀 Getting Started
 
-1. Clone the repository
+### 1. Clone the repository
 
 git clone https://github.com/your-username/dr-fine-rag.git
 cd dr-fine-rag
@@ -79,7 +80,7 @@ Copy the example environment configuration:
 cp .env.example .env
 
 
-3. Run the Application
+### 3. Run the Application
 
 You can launch the entire ecosystem (FastAPI Backend + Streamlit Frontend) using the automated script:
 
@@ -91,13 +92,13 @@ Backend: uvicorn main:app --port 8000
 
 Frontend: streamlit run app.py
 
-🌐 Endpoints & Access
+## 🌐 Endpoints & Access
 
 Web Interface (Streamlit): http://localhost:8501
 
 Interactive API Docs (FastAPI/Swagger): http://127.0.0.1:8000/docs
 
-💡 Engineering Highlights
+## 💡 Engineering Highlights
 
 Decoupled Architecture: Clean isolation between the Streamlit UI, FastAPI endpoints, and core game/model logic.
 
